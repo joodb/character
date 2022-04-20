@@ -1,0 +1,110 @@
+
+/* setting */
+:root {
+    --main-color: #F2C849;
+    --face-color: #674400;
+    --hand-color: #F28C0F;
+}
+
+/* reset */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* layout */
+/* design */
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(./imgaes/);
+}
+
+.emoji {
+    position: relative;
+    top: 100px;
+    margin: 50px auto;
+    width: 400px;
+    height: 380px;
+}
+
+
+.emoji .face {
+    position: absolute;
+    bottom: 0;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: var(--main-color);
+    overflow: hidden;
+    /* offset-x | offset-y | blur-radius | spread-radius | color */
+    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); */
+}
+
+.emoji .eye {
+    position: absolute;
+    width: 40px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--face-color);
+    z-index: 3;
+}
+
+.emoji .eye.left {
+    top: 110px;
+    left: 116px;
+}
+
+.emoji .eye.right {
+    top: 115px;
+    right: 109px
+}
+
+.emoji .eyebrow {
+    position: absolute;
+    width: 142px;
+    height: 21px;
+    border-radius: 10px;
+    background: var(--face-color);
+    z-index: 3;
+}
+
+.emoji .eyebrow.left{
+    top: 50px;
+    left: 45px;
+    transform: rotate(30deg);
+}
+
+.emoji .eyebrow.right{
+    top: 98px;
+    left: 208px;
+    transform: rotate(-6deg);
+}
+
+
+.emoji .mouth {
+    position: absolute;
+    width: 176px;
+    height: 19px;
+    background: var(--face-color);
+    z-index: 3;
+    border-radius: 10px;
+    top: 233px;
+    left: 142px;
+    transform: rotate(-6deg);
+}
+
+.emoji .hand {
+    position: absolute;
+    background: var(--hand-color);
+    z-index: 5;
+    top: 106px;
+    left: 27px;
+}
+
+.emoji .hand.thumb{
+    width: 60px;
+    height: 90px;
+}
