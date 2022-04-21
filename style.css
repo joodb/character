@@ -1,3 +1,50 @@
+/* animaion */
+@keyframes back-scale{
+    0% {
+        transform: translateZ(120px);
+    }
+    
+    50% {
+        transform: translateZ(200px);
+    }
+    
+    100% {
+        transform: translateZ(120px);
+    }
+}
+
+@keyframes back-rotate{
+    0% {
+        transform: rotateZ(-4deg);
+    }
+    
+    50% {
+        transform: rotateZ(10deg);
+    }
+    
+    100% {
+        transform: rotateZ(-4deg);
+    }
+}
+
+
+@keyframes front-rotate{
+    0% {
+        transform: rotateZ(4deg);
+    }
+    
+    50% {
+        transform: rotateZ(-7deg);
+    }
+    
+    100% {
+        transform: rotateZ(4deg);
+    }
+}
+
+
+
+
 
 /* setting */
 :root {
@@ -28,6 +75,12 @@ body {
     margin: 50px auto;
     width: 400px;
     height: 380px;
+    z-index: 50;
+}
+
+.emoji.front {
+
+    animation: front-rotate 2s infinite alternate;
 }
 
 
@@ -35,10 +88,13 @@ body {
     position: absolute;
     bottom: 0;
     width: 400px;
-    height: 400px;
+    height: 276px;
     border-radius: 50%;
+    /*     background: linear-gradient( #ffeebb 0%, #f2c849 70%, #d6a615 100%); */
     background: var(--main-color);
+    border-radius: 50%;
     overflow: hidden;
+    border-radius: 49% 51% 58% 41% / 50% 60% 41% 48% ;
     /* offset-x | offset-y | blur-radius | spread-radius | color */
     /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); */
 }
@@ -53,32 +109,42 @@ body {
 }
 
 .emoji .eye.left {
-    top: 110px;
-    left: 116px;
+    top: 183px;
+    left: 89px;
+    border-radius: 33% 63% 57% 39% / 40% 63% 27% 48%;
 }
 
 .emoji .eye.right {
-    top: 115px;
-    right: 109px
+    top: 203px;
+    right: 109px;
+    border-radius: 53% 31% 29% 39% / 40% 33% 51% 48% ;
 }
 
 .emoji .eyebrow {
     position: absolute;
-    width: 142px;
-    height: 21px;
-    border-radius: 10px;
+    height: 25px;
+    border-radius: 50px;
     background: var(--face-color);
     z-index: 3;
 }
 
-.emoji .eyebrow.left{
-    top: 50px;
-    left: 45px;
-    transform: rotate(30deg);
+.emoji .eyebrow.left {
+    width: 68px;
+    top: 159px;
+    left: 37px;
+    transform: rotate(-45deg);
 }
 
-.emoji .eyebrow.right{
-    top: 98px;
+.emoji .eyebrow.left_2 {
+    width: 97px;
+    top: 156px;
+    left: 75px;
+    transform: rotate(19deg);
+}
+
+.emoji .eyebrow.right {
+    width: 142px;
+    top: 192px;
     left: 208px;
     transform: rotate(-6deg);
 }
@@ -86,13 +152,13 @@ body {
 
 .emoji .mouth {
     position: absolute;
-    width: 176px;
-    height: 19px;
+    width: 260px;
+    height: 26px;
     background: var(--face-color);
     z-index: 3;
-    border-radius: 10px;
-    top: 233px;
-    left: 142px;
+    border-radius: 50px;
+    top: 288px;
+    left: 157px;
     transform: rotate(-6deg);
 }
 
@@ -100,11 +166,82 @@ body {
     position: absolute;
     background: var(--hand-color);
     z-index: 5;
-    top: 106px;
+    top: 221px;
     left: 27px;
 }
 
 .emoji .hand.thumb{
-    width: 60px;
-    height: 90px;
+    border-radius: 48% 52% 100% 0% / 100% 100% 0% 0%;
+    width: 41px;
+    height: 60px;
+    top: 79px;
+    left: 27px;
+}
+
+.emoji .hand.palm{
+    border-radius: 39% 0% 0% 39% / 53% 0% 0% 48%;
+    width: 39px;
+    height: 60px;
+    top: 120px;
+    left: 20px;
+}
+.emoji .hand.finger{
+    border-radius: 0% 57% 59% 0% / 53% 53% 46% 48% ;
+    width: 91px;
+    height: 32px;
+    top: 120px;
+    left: 112px;
+}
+
+.emoji .hand.finger_knuckle{
+    width: 70px;
+    height: 32px;
+    top: 120px;
+    left: 54px;
+}
+
+.emoji .hand.finger_2{
+    border-radius: 0% 57% 59% 0% / 53% 53% 46% 48% ;
+    width: 71px;
+    height: 32px;
+    top: 148px;
+    left: 49px;
+}
+
+
+
+/* back emoji */
+.back {
+    position: relative;
+    top: -512px;
+    margin: 50px auto;
+    width: 400px;
+    height: 380px;
+    transform: rotateZ(-4deg);
+    z-index: -15;
+    left: -65px;
+    opacity: 0.3;
+    perspective: 500px;
+    
+    animation: back-rotate 2s infinite alternate;
+}
+
+.emoji.back .mouth {
+    position: absolute;
+    width: 30px;
+    height: 56px;
+    background: var(--face-color);
+    z-index: 3;
+    border-radius: 50px;
+    top: 288px;
+    left: 157px;
+    transform: rotate(-6deg);
+}
+
+
+.emoji.back .hand, .emoji.back .face, .emoji.back .mouth,
+.emoji.back .eye.left, .emoji.back .eye.right
+{
+    transform: translateZ(120px);
+    animation-name: back-scale 2s infinite alternate;
 }
